@@ -57,9 +57,11 @@ cv2.destroyAllWindows
 def musicsch(a):
     import spotipy
     from spotipy.oauth2 import SpotifyClientCredentials
-
-    client_id = 'b43b7b9ecda548a8aa31e776e53d78a3'
-    client_secret = 'e65ca3ded8bb485eb380f26f3448270d'
+    
+    client_id = 'your spotify client id'
+    
+    client_secret = 'your client secret'
+    
 
     client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
