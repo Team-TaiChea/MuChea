@@ -8,7 +8,6 @@ warnings.filterwarnings("ignore")
 from keras.utils import load_img, img_to_array
 from keras.models import  load_model
 import matplotlib.pyplot as plt
-import numpy as np
 
 # load model
 model = load_model("best_model.h5")
