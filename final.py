@@ -58,10 +58,9 @@ def musicsch(a):
     from spotipy.oauth2 import SpotifyClientCredentials
     from dotenv import load_dotenv  
     load_dotenv()
-    client_id = os.getenv("client_id")
+    client_id = "b43b7b9ecda548a8aa31e776e53d78a3"
     
-    client_secret = os.getenv("client_secret")
-    
+    client_secret = "e65ca3ded8bb485eb380f26f3448270d"
 
     client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
