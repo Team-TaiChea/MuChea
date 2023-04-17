@@ -56,19 +56,24 @@ cv2.destroyAllWindows
 def musicsch(a):
     import spotipy
     from spotipy.oauth2 import SpotifyClientCredentials
+    from os.path import join, dirname
     from dotenv import load_dotenv  
-    load_dotenv()
-    client_id = 
+
+    dotenv_path = join(dirname(__file__), 'env')
+    load_dotenv(dotenv_path)
     
-    client_secret = 
+    client_id = os.environ.get('client_id')
+    client_secret = os.environ.get('client_secret')
 
     client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
     def suggest_songs(mood):
-        results = sp.search(q=f'mood:{mood}', type='track', limit=10)
+        markets = ['US', 'IN']
+        results = sp.search_markets(q=('album:' + str(mood)), type='track', limit=20, markets=markets)
         songs = []
-        for track in results['tracks']['items']:
+
+        for track in results['IN']['tracks']['items']:
             songs.append(track['name'] + ' by ' + track['artists'][0]['name'])
         return songs
 
